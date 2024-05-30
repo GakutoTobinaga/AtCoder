@@ -14,3 +14,5 @@ a = list(map(int, input().split()))
 
 # 処理例
 print(sum(a))
+
+# python3 main.py
