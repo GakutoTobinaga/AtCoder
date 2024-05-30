@@ -19,20 +19,8 @@ print(cname)  # Trvlds
 # 母音を削除するための変換マッピングを作成
 vowel = 'aeiouAEIOU'
 translation_table = str.maketrans('', '', vowel)
-
-# 変換テーブルの内容を表示
-print("Translation Table:", translation_table)
-
 # 文字列を変換
 cn = n.translate(translation_table)
-# 2つの数値を足す無名関数
-# lambda 引数1, 引数2, ... : 式
-add = lambda x, y: x + y
-print(add(3, 5))  # 出力: 8
-
+# translateは受け取ったUnicode配列を使って文字列を置き換えていく関数。
 # 結果を出力
-print("Result:", cn)
-
-# 処理例
-
-# python3 main.py
+print(cn)
