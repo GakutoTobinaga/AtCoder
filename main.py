@@ -16,3 +16,7 @@ a = list(map(int, input().split()))
 print(sum(a))
 
 # python3 main.py
+
+N = int(input())
+K = int(input())
+print(int(N % K))
