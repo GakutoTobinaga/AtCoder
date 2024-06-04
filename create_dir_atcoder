@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# ベースディレクトリを設定
+base_dir="Practice"
+
+# 今日の日付を YYYY-MM-DD 形式で取得
+today=$(date +%Y-%m-%d)
+
+# 新しいディレクトリのパスを作成
+new_dir="${base_dir}/${today}"
+
+# 新しいディレクトリを作成
+mkdir -p $new_dir
+
+# Python ファイルのパスを設定
+python_file="${new_dir}/main.py"
+
+# Python ファイルにコードを書き込む
+cat <<EOF >$python_file
+import sys
+input_file = 'input.txt'
+with open(input_file, 'r') as f:
+    input_data = f.read()
+
+sys.stdin = open(input_file, 'r')
+EOF
+
+# input textを作成
+touch "${new_dir}/input.txt"
+# 成功メッセージを表示
+echo "Created directory: $new_dir"
+echo "Created Python file: $python_file"
+echo "Created text input file"
