@@ -16,3 +16,11 @@ print(sample2)
 sample3 = sample1.lower()
 # lowerは元のやつは変えられない
 print(sample3)
+
+def gcp(x, y):
+    if y == 0:
+        return x
+    else:
+        return gcp(y, x%y)
+
+print(gcp(234, 987))
