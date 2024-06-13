@@ -4,7 +4,7 @@ with open(input_file, 'r') as f:
     input_data = f.read()
 
 sys.stdin = open(input_file, 'r')
-
+"""
 N = int(input())
 numbers = map(int,input().split())
 alice = 0
@@ -19,3 +19,17 @@ for i in range(1, N + 1):
     else:
         bob += biggest_number
 print(alice - bob)
+
+multipliers = []
+N = int(input())
+for i in range(1, 8):
+    multipliers.append(2 ** i)
+if N == 1:
+    print(1)
+elif N in multipliers:
+    print(N)
+else:
+    for i in range(len(multipliers) - 1):
+        if multipliers[i] <= N and N < multipliers[i + 1]:
+            print(multipliers[i])
+"""
