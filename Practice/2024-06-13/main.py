@@ -6,22 +6,21 @@ with open(input_file, 'r') as f:
 sys.stdin = open(input_file, 'r')
 
 cookies = list(map(int, input().split()))
-already_cookies = [cookies]
+already = [cookies[0], cookies[1], cookies[2]]
+already_cookies = [already]
 count = 0
 while True:
+    new_cookies = []
     new_cookies = [int(int(cookies[1]) / 2 + int(cookies[2]) / 2),
-                   int(int(cookies[0]) / 2 + int(cookies[2]) / 2),
-                   int(int(cookies[0]) / 2 + int(cookies[1]) / 2)]
-    if new_cookies[0] % 2 != 0 or new_cookies[1] % 2 != 0 or new_cookies[0] % 2 != 0:
-        print(new_cookies)
-        count += 1
-        print(count)
-        exit()
+                int(int(cookies[0]) / 2 + int(cookies[2]) / 2),
+                int(int(cookies[0]) / 2 + int(cookies[1]) / 2)]
+    count += 1
+    if new_cookies[0] % 2 == 0 and new_cookies[1] % 2 == 0 and new_cookies[0] % 2 == 0:
+        already_cookies.append(new_cookies)
+        new_cookies.clear
     else:
-        new_cookies_set = new_cookies
-        print(new_cookies_set)
-        if new_cookies_set in already_cookies:
-            print(-1)
-            exit()
+        if new_cookies in already_cookies:
+            print(count)
+            break
         else:
-            already_cookies.append(new_cookies)
+            new_cookies.clear

@@ -5,16 +5,15 @@ with open(input_file, 'r') as f:
 
 sys.stdin = open(input_file, 'r')
 
-N, K = map(int, input().split())
-trials = [N]
-current = N
+N = int(input())
+numbers = list(map(int, input().split()))
 
-while True:
-    next_value = abs(current - K)
-    if next_value in trials:
-        break
-    else:
-        trials.append(next_value)
-        current = next_value
+sorted_numbers = sorted(numbers)
 
-print(trials)
+center = int(N / 2)
+
+if sorted_numbers[center - 1] == sorted_numbers[center]:
+    print(0)
+else:
+    between_number = sorted_numbers[center] - sorted_numbers[center - 1]
+    print(between_number)
